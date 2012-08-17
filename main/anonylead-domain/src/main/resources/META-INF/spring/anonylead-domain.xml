@@ -48,7 +48,8 @@
                 <property name="inMemory" value="true"/>
                 <property name="maxVersions" value="1"/>
                 <!--<property name="replicationScope" value="0"/>-->
-                <property name="timeToLive" value="10"/>
+                <!--<property name="timeToLive" value="86400"/>-->
+                <property name="timeToLive" value="15"/>
             </bean>
         </property>
         <property name="mediumColumnConfigurator">

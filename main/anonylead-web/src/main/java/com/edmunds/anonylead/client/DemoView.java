@@ -58,7 +58,7 @@ public class DemoView implements Viewable {
 
         submitForTempEmail.addClickHandler(new ClickHandler() {
             public void onClick(ClickEvent event) {
-                result2.setText("");
+                //result2.setText("");
                 if(realEmail.getText().length() == 0) {
                     return;
                 }
@@ -69,7 +69,7 @@ public class DemoView implements Viewable {
                     requestBuilder.sendRequest(null, new RequestCallback() {
                         public void onResponseReceived(Request request, Response response) {
                             result1.setText("The temporary email for '" + realEmail.getText() + "' is: " +
-                                response.getText());
+                                response.getText() + "@leads.edmunds.com");
                         }
 
                         public void onError(Request request, Throwable throwable) {
@@ -84,7 +84,7 @@ public class DemoView implements Viewable {
 
         submitForRealEmail.addClickHandler(new ClickHandler() {
             public void onClick(ClickEvent event) {
-                result1.setText("");
+                //result1.setText("");
                 if(tempEmail.getText().length() == 0) {
                     return;
                 }
@@ -94,7 +94,7 @@ public class DemoView implements Viewable {
                 try {
                     requestBuilder.sendRequest(null, new RequestCallback() {
                         public void onResponseReceived(Request request, Response response) {
-                            result2.setText("The real email for '" + tempEmail.getText() + "' is: " +
+                            result2.setText("The REST response for '" + tempEmail.getText() + "' is: " +
                                 response.getText());
                         }
 

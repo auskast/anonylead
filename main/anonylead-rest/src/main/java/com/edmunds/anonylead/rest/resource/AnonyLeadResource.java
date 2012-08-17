@@ -13,6 +13,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -34,10 +35,17 @@ public class AnonyLeadResource {
 
     @POST
     @Path("submit")
-    public boolean submitLead(String firstName, String lastName, String email, Duration duration,
-                              DigestPeriod digestPeriod) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public boolean submitLead(@QueryParam("first") String firstName,
+                              @QueryParam("last") String lastName,
+                              @QueryParam("email") String email,
+                              @QueryParam("duration") int duration,
+                              @QueryParam("digest") int digestPeriod) {
         try {
-            return anonyLeadDao.putRecord(new Record(firstName, lastName, email, duration, digestPeriod));
+            final Record record = new Record(email, firstName, lastName, Duration.values()[duration],
+                DigestPeriod.values()[digestPeriod]);
+            System.out.println(record.toString());
+            return anonyLeadDao.putRecord(record);
         } catch(IOException e) {
             return false;
         }

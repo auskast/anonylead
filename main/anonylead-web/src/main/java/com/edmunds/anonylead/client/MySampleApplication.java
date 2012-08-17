@@ -23,8 +23,8 @@ public class MySampleApplication implements EntryPoint {
 
     public static final String width = "330";
     private static final String SELECTED_BUTTON_STYLE = "buttonSelected";
-    Button[] buttons = new Button[]{new Button("User View"), new Button("Table View"), new Button("Demo View")};
-    Viewable[] views = new Viewable[]{new UserView(), new TableView(), new DemoView()};
+    Button[] buttons = new Button[]{new Button("User View"),  new Button("Demo View")};
+    Viewable[] views = new Viewable[]{new UserView(), new DemoView()};
 
     /**
      * This is the entry point method.
@@ -68,11 +68,11 @@ public class MySampleApplication implements EntryPoint {
             }
         });
 
-        buttons[2].addClickHandler(new ClickHandler() {
-            public void onClick(ClickEvent event) {
-                buttonClicked(2);
-            }
-        });
+//        buttons[2].addClickHandler(new ClickHandler() {
+//            public void onClick(ClickEvent event) {
+//                buttonClicked(2);
+//            }
+//        });
     }
 
     private void buttonClicked(int index ) {

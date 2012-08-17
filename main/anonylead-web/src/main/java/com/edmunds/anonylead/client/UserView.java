@@ -2,6 +2,11 @@ package com.edmunds.anonylead.client;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestBuilder;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.RequestException;
+import com.google.gwt.http.client.Response;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -79,6 +84,7 @@ public class UserView implements Viewable{
         VerticalPanel emailPanel = new VerticalPanel();
         emailPanel.add(new Label("Email Address"));
         emailPanel.add(emailField);
+        emailPanel.add(new Label("We will not share your email address with dealers!"));
         formPanel.add(emailPanel);
 
         //Expiration
@@ -116,8 +122,30 @@ public class UserView implements Viewable{
                 String firstName = firstNameField.getText();
                 String lastName = lastNameField.getText();
                 String email = emailField.getText();
+                int duration = expiration.getSelectedIndex();
+                int digestPeriod = isDigest.isChecked() ? digestTime.getSelectedIndex() + 1 : 0;
 
+                final StringBuilder url = new StringBuilder("api/anonyLead/submit").append("?")
+                    .append("first=").append(firstName).append("&")
+                    .append("last=").append(lastName).append("&")
+                    .append("email=").append(email).append("&")
+                    .append("duration=").append(duration).append("&")
+                    .append("digest=").append(digestPeriod);
+                final RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.POST, url.toString());
+                try {
+                    requestBuilder.sendRequest(null, new RequestCallback() {
+                        public void onResponseReceived(Request request, Response response) {
+                            thankYou.setText("Thank you! You will receive an email shortly including the new Edmunds " +
+                                "Purchase Guide, put together just for you!");
+                        }
 
+                        public void onError(Request request, Throwable throwable) {
+                            thankYou.setText("Error!");
+                        }
+                    });
+                } catch(RequestException e) {
+                    thankYou.setText(e.getMessage());
+                }
             }
         });
 
