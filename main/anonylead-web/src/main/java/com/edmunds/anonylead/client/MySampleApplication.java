@@ -59,15 +59,13 @@ public class MySampleApplication implements EntryPoint {
         RootPanel.get("buttonArea").add(optionPanel);
 
         userButton.addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
+            public void onClick(ClickEvent clickEvent) {
                 userButtonClicked();
             }
         });
 
 
         tableButton.addClickHandler(new ClickHandler() {
-            @Override
             public void onClick(ClickEvent event) {
 
                 tableButtonClicked();
@@ -75,7 +73,6 @@ public class MySampleApplication implements EntryPoint {
         });
 
         demoButton.addClickHandler(new ClickHandler() {
-            @Override
             public void onClick(ClickEvent event) {
                 //To change body of implemented methods use File | Settings | File Templates.
                 demoButtonClicked();
@@ -211,7 +208,6 @@ public class MySampleApplication implements EntryPoint {
         formPanel.add(digestPanel);
 
         isDigest.addClickHandler(new ClickHandler() {
-            @Override
             public void onClick(ClickEvent event) {
                 if(isDigest.isChecked()) {
                     formPanel.add(digestTimePanel);
@@ -223,7 +219,6 @@ public class MySampleApplication implements EntryPoint {
         final Label thankYou = new Label();
 
         button.addClickHandler(new ClickHandler() {
-            @Override
             public void onClick(ClickEvent event) {
                 String firstName = firstNameField.getText();
                 String lastName = lastNameField.getText();
@@ -264,7 +259,6 @@ public class MySampleApplication implements EntryPoint {
         tableView.add(tempEmailPanel);
 
         refresh.addClickHandler(new ClickHandler() {
-            @Override
             public void onClick(ClickEvent event) {
                 tableView.clear();
                 setTableView();
@@ -339,7 +333,6 @@ public class MySampleApplication implements EntryPoint {
         demoView.add(result2);
 
         submitForTempEmail.addClickHandler(new ClickHandler() {
-            @Override
             public void onClick(ClickEvent event) {
                 result1.setText("The temporary email for '" + tempEmail.getText() + "' is: ");
                 result2.setText("");
@@ -347,7 +340,6 @@ public class MySampleApplication implements EntryPoint {
         });
 
         submitForRealEmail.addClickHandler(new ClickHandler() {
-            @Override
             public void onClick(ClickEvent event) {
                 result2.setText("The real email for '" + tempEmail.getText() + "' is: ");
                 result1.setText("");
