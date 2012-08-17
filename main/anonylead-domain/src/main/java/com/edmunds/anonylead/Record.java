@@ -4,9 +4,9 @@ package com.edmunds.anonylead;
  * Created by IntelliJ IDEA. User: pfitzgerald Date: 8/16/12 Time: 5:17 PM
  */
 public class Record {
-    private String email = "";
-    private String firstName = "";
-    private String lastName = "";
+    private String email;
+    private String firstName;
+    private String lastName;
     private Duration duration = Duration.SHORT;
     private DigestPeriod digestPeriod = DigestPeriod.NONE;
 
@@ -63,13 +63,13 @@ public class Record {
     @Override
     public String toString() {
         return new StringBuilder()
-            .append("Record: ")
-            .append("{ FirstName: ").append(firstName)
+            .append("Record")
+            .append("(FirstName: ").append(firstName)
             .append(", LastName: ").append(lastName)
             .append(", Email: ").append(email)
             .append(", Duration: ").append(duration)
             .append(", DigestPeriod: ").append(digestPeriod)
-            .append("}")
+            .append(")")
             .toString();
     }
 }
