@@ -28,7 +28,7 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>MySampleApplication MySampleApplicationService</servlet-name>
+        <servlet-name>webapp</servlet-name>
         <servlet-class>com.edmunds.anonylead.server.MySampleApplicationServiceImpl</servlet-class>
     </servlet>
 
@@ -37,7 +37,7 @@
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>MySampleApplication MySampleApplicationService</servlet-name>
+        <servlet-name>webapp</servlet-name>
         <url-pattern>/MySampleApplication/MySampleApplicationService</url-pattern>
     </servlet-mapping>
 </web-app>

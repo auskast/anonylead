@@ -1,6 +1,7 @@
 package com.edmunds.anonylead.configurator;
 
 import com.edmunds.anonylead.factory.HBaseFactory;
+import com.edmunds.anonylead.factory.impl.ConfigurationDefaultFactory;
 import java.io.IOException;
 import java.util.Map;
 import org.apache.hadoop.conf.Configuration;
@@ -17,10 +18,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class SchemaConfigurator {
     @Autowired
     private HBaseFactory hBaseFactory;
-    @Autowired
+    //@Autowired
     private Configuration configuration;
 
     private String tableName;
+
+    public SchemaConfigurator() {
+        try {
+            this.configuration = (Configuration) new ConfigurationDefaultFactory().getObject();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     protected abstract Map<byte[], ColumnConfigurator> getColumns();
 
