@@ -4,11 +4,34 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
+    
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:webapp-context.xml</param-value>
+    </context-param>
 
+    <servlet>
+        <servlet-name>rest-api</servlet-name>
+        <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>com.edmunds.anonylead.rest.resource</param-value>
+        </init-param>
+        <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet>
         <servlet-name>MySampleApplication MySampleApplicationService</servlet-name>
         <servlet-class>com.edmunds.anonylead.server.MySampleApplicationServiceImpl</servlet-class>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>rest-api</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MySampleApplication MySampleApplicationService</servlet-name>
         <url-pattern>/MySampleApplication/MySampleApplicationService</url-pattern>
