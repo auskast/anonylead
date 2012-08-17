@@ -26,7 +26,6 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/main" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/main/anonylead-domain" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/main/anonylead-rest" charset="UTF-8" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
@@ -167,14 +166,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/main/anonylead.iml" filepath="$PROJECT_DIR$/main/anonylead.iml" />
       <module fileurl="file://$PROJECT_DIR$/main/anonylead-domain/anonylead-domain.iml" filepath="$PROJECT_DIR$/main/anonylead-domain/anonylead-domain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/main/anonylead-rest/anonylead-rest.iml" filepath="$PROJECT_DIR$/main/anonylead-rest/anonylead-rest.iml" />
     </modules>
   </component>
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/main/classes" />
+    <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
@@ -212,17 +210,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/asm/asm/3.1/asm-3.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: com.beust:jcommander:1.12">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/beust/jcommander/1.12/jcommander-1.12.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/com/beust/jcommander/1.12/jcommander-1.12-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/beust/jcommander/1.12/jcommander-1.12-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.google.guava:guava:r09">
@@ -566,17 +553,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/zookeeper/zookeeper/3.3.4-cdh3u3/zookeeper-3.3.4-cdh3u3-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.beanshell:bsh:2.0b4">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/beanshell/bsh/2.0b4/bsh-2.0b4-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/beanshell/bsh/2.0b4/bsh-2.0b4-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: org.codehaus.jackson:jackson-core-asl:1.5.2">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.5.2/jackson-core-asl-1.5.2.jar!/" />
@@ -786,17 +762,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/2.5.6/spring-core-2.5.6-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.testng:testng:5.14.10">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.14.10/testng-5.14.10.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.14.10/testng-5.14.10-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.14.10/testng-5.14.10-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: org.xerial.snappy:snappy-java:1.0.3.2">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/xerial/snappy/snappy-java/1.0.3.2/snappy-java-1.0.3.2.jar!/" />
@@ -806,17 +771,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/xerial/snappy/snappy-java/1.0.3.2/snappy-java-1.0.3.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.yaml:snakeyaml:1.6">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.6/snakeyaml-1.6.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.6/snakeyaml-1.6-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.6/snakeyaml-1.6-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: stax:stax-api:1.0.1">

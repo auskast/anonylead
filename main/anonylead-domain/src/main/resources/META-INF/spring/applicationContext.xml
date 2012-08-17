@@ -9,4 +9,77 @@
 
     <context:component-scan base-package="com.edmunds.anonylead.factory.impl"/>
 
+    <bean id="leadEmail" class="com.edmunds.anonylead.configurator.impl.LeadEmailSchemaConfigurator">
+        <property name="tableName" value="leadEmail"/>
+        <property name="metaDataColumnConfigurator">
+            <bean class="com.edmunds.anonylead.configurator.ColumnConfigurator">
+                <!--<property name="blockCacheEnabled" value="true"/>-->
+                <!--<property name="blockSize" value="65535"/>-->
+                <!--<property name="bloomFilterType" value="NONE"/>-->
+                <!--<property name="compressionType" value="NONE"/>-->
+                <!--<property name="inMemory" value="false"/>-->
+                <!--<property name="maxVersions" value="3"/>-->
+                <!--<property name="replicationScope" value="0"/>-->
+                <!--<property name="timeToLive" value="2147483647"/>-->
+            </bean>
+        </property>
+        <property name="tempColumnConfigurator">
+            <bean class="com.edmunds.anonylead.configurator.ColumnConfigurator">
+                <!--<property name="blockCacheEnabled" value="true"/>-->
+                <!--<property name="blockSize" value="65535"/>-->
+                <!--<property name="bloomFilterType" value="NONE"/>-->
+                <!--<property name="compressionType" value="NONE"/>-->
+                <!--<property name="inMemory" value="false"/>-->
+                <property name="maxVersions" value="2147483647"/>
+                <!--<property name="replicationScope" value="0"/>-->
+                <!--<property name="timeToLive" value="2147483647"/>-->
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="tempEmail" class="com.edmunds.anonylead.configurator.impl.TempEmailSchemaConfigurator">
+        <property name="tableName" value="tempEmail"/>
+        <property name="shortColumnConfigurator">
+            <bean class="com.edmunds.anonylead.configurator.ColumnConfigurator">
+                <!--<property name="blockCacheEnabled" value="true"/>-->
+                <!--<property name="blockSize" value="65535"/>-->
+                <!--<property name="bloomFilterType" value="NONE"/>-->
+                <!--<property name="compressionType" value="NONE"/>-->
+                <property name="inMemory" value="true"/>
+                <property name="maxVersions" value="1"/>
+                <!--<property name="replicationScope" value="0"/>-->
+                <property name="timeToLive" value="86400"/>
+            </bean>
+        </property>
+        <property name="mediumColumnConfigurator">
+            <bean class="com.edmunds.anonylead.configurator.ColumnConfigurator">
+                <!--<property name="blockCacheEnabled" value="true"/>-->
+                <!--<property name="blockSize" value="65535"/>-->
+                <!--<property name="bloomFilterType" value="NONE"/>-->
+                <!--<property name="compressionType" value="NONE"/>-->
+                <property name="inMemory" value="true"/>
+                <property name="maxVersions" value="1"/>
+                <!--<property name="replicationScope" value="0"/>-->
+                <property name="timeToLive" value="604800"/>
+            </bean>
+        </property>
+        <property name="longColumnConfigurator">
+            <bean class="com.edmunds.anonylead.configurator.ColumnConfigurator">
+                <!--<property name="blockCacheEnabled" value="true"/>-->
+                <!--<property name="blockSize" value="65535"/>-->
+                <!--<property name="bloomFilterType" value="NONE"/>-->
+                <!--<property name="compressionType" value="NONE"/>-->
+                <property name="inMemory" value="true"/>
+                <property name="maxVersions" value="1"/>
+                <!--<property name="replicationScope" value="0"/>-->
+                <property name="timeToLive" value="2592000"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="anonyLeadDao" class="com.edmunds.anonylead.dao.impl.AnonyLeadDaoImpl">
+        <constructor-arg index="0" ref="leadEmail"/>
+        <constructor-arg index="1" ref="tempEmail"/>
+    </bean>
+
 </beans>
