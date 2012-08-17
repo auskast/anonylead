@@ -1,0 +1,50 @@
+/** Add css rules here for your application. */
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.h2{
+    font-size: 1em;
+    font-weight: bold;
+    text-align: left;
+}
+
+body, td, a,div,  .p {
+    font-family: arial, sans-serif ;
+    font-size: 12;
+    text-align: center;
+}
+
+tbody, td div{
+    font-family: arial, sans-serif;
+    font-size: 12;
+    text-align: left;
+}
+table{
+    border-spacing: 5px;
+}
+
+.buttonSelected{
+    background: lightblue;
+}
+
+.header{
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.leadTable td{
+    border: 1px solid black;
+    margin: 0;
+    padding: 2px;
+    width: 150;
+    text-align: left;
+}
+
+.leadTable{
+    border-collapse:collapse;
+}
