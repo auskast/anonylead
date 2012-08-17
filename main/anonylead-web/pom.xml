@@ -19,6 +19,9 @@
         <!-- GWT needs at least java 1.5 -->
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
         <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+        <jetty.version>7.1.6.v20100715</jetty.version>
+        <jetty.connectorPort>8080</jetty.connectorPort>
+        <jetty.stopPort>5709</jetty.stopPort>
     </properties>
 
     <dependencies>
@@ -38,6 +41,14 @@
             <artifactId>gwt-user</artifactId>
             <version>${gwtVersion}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -119,6 +130,26 @@
                 <configuration>
                     <source>1.5</source>
                     <target>1.5</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.version}</version>
+                <configuration>
+                    <stopKey>STOP</stopKey>
+                    <stopPort>${jetty.stopPort}</stopPort>
+                    <useTestClasspath>true</useTestClasspath>
+                    <scanIntervalSeconds>5</scanIntervalSeconds>
+                    <webAppConfig>
+                        <contextPath>/</contextPath>
+                    </webAppConfig>
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>${jetty.connectorPort}</port>
+                        </connector>
+                    </connectors>
                 </configuration>
             </plugin>
         </plugins>
