@@ -77,22 +77,6 @@
         </property>
     </bean>
 
-    <bean id="testSchema" class="com.edmunds.anonylead.configurator.impl.TestSchemaConfigurator">
-        <property name="tableName" value="testTable"/>
-        <property name="testColumnConfigurator">
-            <bean class="com.edmunds.anonylead.configurator.ColumnConfigurator">
-                <property name="blockCacheEnabled" value="false"/>
-                <!--<property name="blockSize" value="65535"/>-->
-                <!--<property name="bloomFilterType" value="NONE"/>-->
-                <property name="compressionType" value="SNAPPY"/>
-                <!--<property name="inMemory" value="false"/>-->
-                <property name="maxVersions" value="1"/>
-                <!--<property name="replicationScope" value="0"/>-->
-                <!--<property name="timeToLive" value="2147483647"/>-->
-            </bean>
-        </property>
-    </bean>
-
     <bean id="anonyLeadDao" class="com.edmunds.anonylead.dao.impl.AnonyLeadDaoImpl">
         <constructor-arg index="0" ref="leadEmail"/>
         <constructor-arg index="1" ref="tempEmail"/>

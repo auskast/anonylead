@@ -48,7 +48,8 @@ public class AnonyLeadDaoImpl implements AnonyLeadDao {
         final byte[] tempEmail = createTempEmail();
 
         final Put tempEmailPut = new Put(tempEmail)
-            .add(record.getDuration().getFamily(), QUALIFIER_LEAD_EMAIL, Bytes.toBytes(record.getEmail()));
+            .add(record.getDuration().getFamily(), QUALIFIER_LEAD_EMAIL,
+                Bytes.toBytes(StringUtils.lowerCase(record.getEmail())));
 
         final Put leadEmailPut = new Put(Bytes.toBytes(StringUtils.lowerCase(record.getEmail())))
             .add(FAMILY_META_DATA, QUALIFIER_FIRST_NAME, Bytes.toBytes(record.getFirstName()))
@@ -64,7 +65,7 @@ public class AnonyLeadDaoImpl implements AnonyLeadDao {
 
     @Override
     public String getTempEmail(String email) throws IOException, NoMaskedEmailHistoryException {
-        final Get get = new Get(Bytes.toBytes(email))
+        final Get get = new Get(Bytes.toBytes(StringUtils.lowerCase(email)))
             .addColumn(FAMILY_TEMP, QUALIFIER_TEMP_EMAIL);
 
         final Result result = leadEmailTable.get(get);
@@ -112,9 +113,17 @@ public class AnonyLeadDaoImpl implements AnonyLeadDao {
             Bytes.toString(email),
             getColumnValue(emailResult, FAMILY_META_DATA, QUALIFIER_FIRST_NAME),
             getColumnValue(emailResult, FAMILY_META_DATA, QUALIFIER_LAST_NAME),
-            Duration.valueOf(Bytes.toString(duration)),
+            Duration.forFamily(duration),
             digestPeriod
         );
+    }
+
+    protected HTable getLeadEmailTable() {
+        return leadEmailTable;
+    }
+
+    protected HTable getTempEmailTable() {
+        return tempEmailTable;
     }
 
     private byte[] createTempEmail() throws IOException {

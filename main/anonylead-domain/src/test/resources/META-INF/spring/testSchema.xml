@@ -14,7 +14,7 @@
         <property name="testColumnConfigurator">
             <bean class="com.edmunds.anonylead.configurator.ColumnConfigurator">
                 <property name="blockCacheEnabled" value="false"/>
-                <!--<property name="blockSize" value="65535"/>-->
+                <!--<property name="blockSize" value="65536"/>-->
                 <!--<property name="bloomFilterType" value="NONE"/>-->
                 <property name="compressionType" value="SNAPPY"/>
                 <!--<property name="inMemory" value="false"/>-->

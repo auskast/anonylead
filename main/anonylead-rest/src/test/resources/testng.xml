@@ -2,7 +2,7 @@
 <suite name="anonylead-rest" annotations="JDK">
     <test name="default" verbose="1" annotations="JDK">
         <packages>
-            <package name="com.edmunds.anonylead"/>
+            <package name="com.edmunds.anonylead.*"/>
         </packages>
     </test>
 </suite>

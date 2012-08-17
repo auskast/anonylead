@@ -1,5 +1,7 @@
 package com.edmunds.anonylead;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * Created by IntelliJ IDEA. User: pfitzgerald Date: 8/16/12 Time: 5:17 PM
  */
@@ -58,6 +60,19 @@ public class Record {
 
     public void setDigestPeriod(DigestPeriod digestPeriod) {
         this.digestPeriod = digestPeriod;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(!(o instanceof Record)) {
+            return false;
+        }
+        final Record other = (Record) o;
+        return StringUtils.equals(this.firstName, other.firstName) &&
+            StringUtils.equals(this.lastName, other.lastName) &&
+            StringUtils.equals(this.email, other.email) &&
+            this.duration == other.duration &&
+            this.digestPeriod == other.digestPeriod;
     }
 
     @Override

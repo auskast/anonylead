@@ -12,7 +12,7 @@ public class ColumnConfigurator {
     private static final boolean DEFAULT_BLOCKCACHE_ENABLED = HColumnDescriptor.DEFAULT_BLOCKCACHE;
     private static final int DEFAULT_BLOCK_SIZE = HColumnDescriptor.DEFAULT_BLOCKSIZE;
     private static final String DEFAULT_BLOOM_FILTER_TYPE = HColumnDescriptor.DEFAULT_BLOOMFILTER;
-    private static final String DEFAULT_COMPRESSION_TYPE = HColumnDescriptor.DEFAULT_COMPRESSION;
+    private static final String DEFAULT_COMPRESSION_TYPE = Compression.Algorithm.NONE.name();
     private static final boolean DEFAULT_IN_MEMORY = HColumnDescriptor.DEFAULT_IN_MEMORY;
     private static final int DEFAULT_MAX_VERSIONS = HColumnDescriptor.DEFAULT_VERSIONS;
     private static final int DEFAULT_REPLICATION_SCOPE = HColumnDescriptor.DEFAULT_REPLICATION_SCOPE;
