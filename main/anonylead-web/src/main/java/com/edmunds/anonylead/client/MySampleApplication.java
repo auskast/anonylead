@@ -21,7 +21,7 @@ import java.util.Arrays;
  */
 public class MySampleApplication implements EntryPoint {
 
-    public static final String width = "330";
+    public static final String width = "500";
     private static final String SELECTED_BUTTON_STYLE = "buttonSelected";
     Button[] buttons = new Button[]{new Button("User View"),  new Button("Demo View")};
     Viewable[] views = new Viewable[]{new UserView(), new DemoView()};

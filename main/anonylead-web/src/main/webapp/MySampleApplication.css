@@ -14,13 +14,13 @@ h1 {
 
 body, td, a,div,  .p {
     font-family: arial, sans-serif ;
-    font-size: 12;
+    font-size: 14;
     text-align: center;
 }
 
 tbody, td div{
     font-family: arial, sans-serif;
-    font-size: 12;
+    font-size: 14;
     text-align: left;
 }
 table{

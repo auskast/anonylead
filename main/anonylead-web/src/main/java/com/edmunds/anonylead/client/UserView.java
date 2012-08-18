@@ -38,7 +38,8 @@ public class UserView implements Viewable{
         emailField.setWidth(MySampleApplication.width);
 
         final ListBox expiration = new ListBox();
-        expiration.addItem("1 day");
+//        expiration.addItem("24 hours");
+        expiration.addItem("15 seconds");
         expiration.addItem("7 days");
         expiration.addItem("30 days");
         expiration.setItemSelected(2, true);
